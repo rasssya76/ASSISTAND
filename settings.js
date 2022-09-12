@@ -29,11 +29,11 @@ global.footer = 'Rama' //ubah jadi nama mu, note tanda ' gausah di hapus!
 // Other
 global.owner = ['6282142108243']
 global.premium = ['6282142108243']
-global.packname = 'Rama'
+global.packname = 'Create By .r76'
 global.ownerr = ['Rama']
-global.author = 'Rama'
+global.author = '6282142108243'
 global.sessionName = './sessionNYA/session'
-global.prefa = ['','!','.',',','s']
+global.prefa = ['','!','.',',']
 global.sp = '⭔'
 global.mess = {
     nsfw: '*Fitur NSFW tidak diaktifkan, chat admin grup supaya diaktifkan*_',

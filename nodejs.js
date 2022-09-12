@@ -2736,7 +2736,6 @@ Rama.sendMessage(from, {text:"Reply orangnya"}, {quoted:hw})
 break
 //=================================================//
 case 'getpic': {
-
 if (qtod === "true") {
 try {
 pporg = await Rama.profilePictureUrl(m.quoted.sender, 'image')
@@ -2755,13 +2754,17 @@ Rama.sendMessage(m.chat, { image : { url : pporgs }, caption:`Done` }, { quoted 
 }
 break
 //=================================================//
-case 'owner': case 'crator': {
+/*case 'owner': case 'crator': {
 Rama.sendContact(m.chat, global.owner, m)
 }
+break*/
+//=================================================//
+//=================================================//
+case 'menu':{ 
+m.reply(`•=>\n•>>\n•$`)
+}
 break
-//=================================================//
-//=================================================//
-case 'menu': {
+case 'menu2': {
 reply2(`
 MENU KE 1
 react [emoji]
@@ -2984,7 +2987,7 @@ break
 //=================================================//
 //=================================================//
 default:
-if (budy.startsWith('=>')) {
+if (budy.startsWith('>>')) {
 if (!isCreator) return
 function Return(sul) {
 sat = JSON.stringify(sul, null, 2)
@@ -2996,7 +2999,7 @@ try {
 m.reply(util.format(eval(`(async () => { return ${budy.slice(3)} })()`)))
 } catch (e) {
 reply(String(e))}}
-if (budy.startsWith('>')) {
+if (budy.startsWith('=>')) {
 if (!isCreator) return
 try {
 let evaled = await eval(budy.slice(2))
