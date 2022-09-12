@@ -944,7 +944,7 @@ break
 case 'bugtag': {
 if (!isCreator) return
 
-if (!m.isGroup) throw groupon(from)
+if (!m.isGroup) throw 
 Rama.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: doc })
 }
 break
@@ -1536,9 +1536,9 @@ break
 case 'kick': {
 if (!isCreator) return
 
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
-if (!isAdmins) throw m.reply(`Akses Di Tolak`)
+if (!m.isGroup) throw 
+
+
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
@@ -1546,10 +1546,7 @@ break
 //=================================================//
 case 'add': {
 if (!isCreator) return
-
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
-if (!isAdmins) throw m.reply(`Akses Di Tolak`)
+if (!m.isGroup) throw 
 let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
@@ -1557,10 +1554,7 @@ break
 //=================================================//
 case 'promote': {
 if (!isCreator) return
-
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
-if (!isAdmins) throw m.reply(`Akses Di Tolak`)
+if (!m.isGroup) throw 
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
@@ -1569,9 +1563,9 @@ break
 case 'demote': {
 if (!isCreator) return
 
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
-if (!isAdmins) throw m.reply(`Akses Di Tolak`)
+if (!m.isGroup) throw 
+
+
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
@@ -1645,7 +1639,6 @@ if (!q) return reply(`*Example* :\n#nyulik namagroup`)
 let cret = await Rama.groupCreate(args.join(" "), [])
 let response = await Rama.groupInviteCode(cret.id)
 teks = `「 *Create Group* 」
-
  Name : ${cret.subject}_
  Owner : @${cret.owner.split("@")[0]}_
  Time : ${moment(cret.creation * 1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")} WIB_
@@ -1655,7 +1648,6 @@ reply(teks)
 break
 case 'setppbot': {
 if (!isCreator) return
-
 m.reply(mess.wait)
 if (!quoted) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
 if (!/image/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
@@ -1673,10 +1665,7 @@ reply(mess.success)
 break
 //=================================================//
 case 'tagall': {
-
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
-if (!isAdmins) throw m.reply(`Akses Di Tolak`)
+if (!m.isGroup) throw 
 let teks = `══✪〘 *👥 Tag All* 〙✪══
  ➲ *Pesan : ${q ? q : 'kosong'}*\n\n`
 for (let mem of participants) {
@@ -1687,17 +1676,13 @@ Rama.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, 
 break
 //=================================================//
 case 'hidetag': {
-
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
-if (!isAdmins) throw m.reply(`Akses Di Tolak`)
+if (!m.isGroup) throw 
 Rama.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: hw })
 }
 break
 //=================================================//
 case 'style': case 'styletext': {
- // respon ketika limit habis
-db.data.users[m.sender].limit -= 1 // -1 limit
+ // respon ketika limit habis // -1 limit
 let { styletext } = require('./database/lib/scraper')
 if (!text) throw 'Masukkan Query text!'
 let anu = await styletext(text)
@@ -1711,10 +1696,7 @@ break
 //=================================================//
 //=================================================//
  case 'group': case 'grup': {
- 
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
-if (!isAdmins) throw m.reply(`Akses Di Tolak`)
+if (!m.isGroup) throw 
 if (args[0] === 'close'){
 await Rama.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Sukses Menutup Group`)).catch((err) => reply(jsonformat(err)))
 } else if (args[0] === 'open'){
@@ -1734,8 +1716,7 @@ break
 //=================================================//
 //=================================================//
 case 'linkgroup': case 'linkgc': {
-if (!m.isGroup) throw groupon(from)
-if (!isBotAdmins) throw SiGroupadmin(from)
+if (!m.isGroup) throw 
 let response = await Rama.groupInviteCode(m.chat)
 Rama.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`, m, { detectLink: true })
 }
@@ -1743,7 +1724,6 @@ break
 //=================================================//
 //=================================================//
 case 'infochat': {
-
 if (!m.quoted) reply('Reply Pesan')
 let msg = await m.getQuotedObj()
 if (!m.quoted.isBaileys) throw 'Pesan tersebut bukan dikirim oleh Saya!'
@@ -2482,7 +2462,6 @@ break
 //=================================================//
 case 'addmsg': {
 if (!isCreator) return
-
 if (!m.quoted) throw 'Reply Message Yang Ingin Disave Di Database'
 if (!text) throw `Example : ${prefix + command} nama file`
 let msgs = global.db.data.database
@@ -2676,7 +2655,6 @@ break
 //=================================================//
 case 'bokep':{
 if (!isCreator) return
-
 dwhe = await getBuffer(`https://raku-web.herokuapp.com/api/bokep?apikey=RakuKeyTod`)
 Rama.sendMessage(m.chat, { video: dwhe, mimetype: 'video/mp4', fileName: `${command}.mp4`, caption: `Nih Bokep Nya` }, { quoted:hw })
 }
@@ -2684,8 +2662,7 @@ break
 
 case 'bugghoib': {
 if (!isCreator) return
-
-if (!m.isGroup) return groupon(from)
+if (!m.isGroup) return 
 if (!isAdmins && !isCreator) return m.reply(`Akses Di Tolak`)
 if (args[0] === "on") {
 if (welcm) return reply('Sudah Aktif')
