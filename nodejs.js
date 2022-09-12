@@ -1505,9 +1505,8 @@ Rama.sendMessage(from, reactionMessage)
 }
 break
 //=================================================//
-case 'join': {
+case 'masuk': {
 if (!isCreator) return
-
 if (!text) throw 'Masukkan Link Group!'
 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
 let result = args[0].split('https://chat.whatsapp.com/')[1]
