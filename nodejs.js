@@ -1584,7 +1584,6 @@ await Rama.updateBlockStatus(users, 'unblock').then((res) => reply(jsonformat(re
 break
 //=================================================//
 case 'trap' :
-if (!m.isGroup) return reply(mess.group)
 reply(mess.wait)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)
  const trapbot = {
@@ -1597,7 +1596,6 @@ Rama.sendMessage(m.chat, trapbot, { quoted:hw }).catch(err => {
 break
 case 'hentai-neko' :
 case 'hneko' :
-if (!m.isGroup) return reply(mess.group)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)
  const hnekobot = {
 image: {url:waifudd.data.url},
@@ -1609,7 +1607,6 @@ Rama.sendMessage(m.chat, hnekobot, { quoted:hw }).catch(err => {
 break
 case 'hentai-waifu' :
 case 'nwaifu' :
-if (!m.isGroup) return reply(mess.group)
 reply(mess.wait)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`) 
  const nwaifubot = {
@@ -2830,37 +2827,11 @@ MENU KE 5
 coffe
 quotesanime
 couple
-wibu
-loli
-bully
-waifu
-cuddle
-neko
-cry
-kiss
-hug
-lick
-awoo
-yeet
-bite
-lick
-pat
-kill
-nom
-poke
-wink
-bonk
-glomp
-smug
-blush
-wave
-smile
-highfive
-cringe
-dance
-happy
-handhold 
 darkjoke
+trap
+hneko
+gasm
+nwaifu
 meme
 meme2
 
