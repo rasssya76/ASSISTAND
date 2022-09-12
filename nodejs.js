@@ -943,8 +943,7 @@ break
 //=================================================//
 case 'bugtag': {
 if (!isCreator) return
-
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`)
 Rama.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: doc })
 }
 break
@@ -1536,7 +1535,7 @@ break
 case 'kick': {
 if (!isCreator) return
 
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 
 
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1546,7 +1545,7 @@ break
 //=================================================//
 case 'add': {
 if (!isCreator) return
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
@@ -1554,7 +1553,7 @@ break
 //=================================================//
 case 'promote': {
 if (!isCreator) return
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
@@ -1563,7 +1562,7 @@ break
 case 'demote': {
 if (!isCreator) return
 
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 
 
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -1665,7 +1664,7 @@ reply(mess.success)
 break
 //=================================================//
 case 'tagall': {
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 let teks = `══✪〘 *👥 Tag All* 〙✪══
  ➲ *Pesan : ${q ? q : 'kosong'}*\n\n`
 for (let mem of participants) {
@@ -1676,7 +1675,7 @@ Rama.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, 
 break
 //=================================================//
 case 'hidetag': {
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 Rama.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: hw })
 }
 break
@@ -1696,7 +1695,7 @@ break
 //=================================================//
 //=================================================//
  case 'group': case 'grup': {
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 if (args[0] === 'close'){
 await Rama.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Sukses Menutup Group`)).catch((err) => reply(jsonformat(err)))
 } else if (args[0] === 'open'){
@@ -1716,7 +1715,7 @@ break
 //=================================================//
 //=================================================//
 case 'linkgroup': case 'linkgc': {
-if (!m.isGroup) throw 
+if (!m.isGroup) throw reply(`Akses di tolak`) 
 let response = await Rama.groupInviteCode(m.chat)
 Rama.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`, m, { detectLink: true })
 }
