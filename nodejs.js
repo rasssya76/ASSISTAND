@@ -128,7 +128,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "14169948404-1305080833
 "previewType": "PHOTO",
 "showAdAttribution": true,
 "sourceUrl": `https://youtube.com/c/RamaGans`,
-"thumbnailUrl": 'https://telegra.ph/file/a5e229afeb4dad4f35204.jpg', 
+"thumbnailUrl": 'https://telegra.ph/file/5e6e0304aedfdd20b1f7f.jpg', 
 "thumbnail": kalimage
 }}}
 //=================================================//
@@ -163,7 +163,7 @@ const reply2 = (teks) => {
 previewType: "PHOTO",
 showAdAttribution: true,
 sourceUrl: `https://youtube.com/c/RamaGans`,
-thumbnailUrl: 'https://telegra.ph/file/a5e229afeb4dad4f35204.jpg', 
+thumbnailUrl: 'https://telegra.ph/file/5e6e0304aedfdd20b1f7f.jpg', 
 thumbnail: kalimage,
 }
 }}, { quoted:hw})
@@ -1579,7 +1579,6 @@ break
 //=================================================//
 case 'block': {
 if (!isCreator) return
-
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.updateBlockStatus(users, 'block').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
@@ -1587,16 +1586,13 @@ break
 //=================================================//
 case 'unblock': {
 if (!isCreator) return
-
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await Rama.updateBlockStatus(users, 'unblock').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }
 break
 //=================================================//
 case 'trap' :
-
 if (!m.isGroup) return reply(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
 reply(mess.wait)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)
  const trapbot = {
@@ -1609,9 +1605,7 @@ Rama.sendMessage(m.chat, trapbot, { quoted:hw }).catch(err => {
 break
 case 'hentai-neko' :
 case 'hneko' :
-
 if (!m.isGroup) return reply(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)
  const hnekobot = {
 image: {url:waifudd.data.url},
@@ -1623,9 +1617,7 @@ Rama.sendMessage(m.chat, hnekobot, { quoted:hw }).catch(err => {
 break
 case 'hentai-waifu' :
 case 'nwaifu' :
-
 if (!m.isGroup) return reply(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
 reply(mess.wait)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`) 
  const nwaifubot = {
@@ -1637,8 +1629,6 @@ Rama.sendMessage(m.chat, nwaifubot, { quoted:hw }).catch(err => {
 })
 break
 case 'gasm':
-
-if (!AntiNsfw) return reply(mess.nsfw)
 reply(mess.wait) 
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
  const wbuttsss = {
