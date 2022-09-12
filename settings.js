@@ -33,7 +33,7 @@ global.packname = 'Rama'
 global.ownerr = ['Rama']
 global.author = 'Rama'
 global.sessionName = './sessionNYA/session'
-global.prefa = ['','!','.',',']
+global.prefa = ['','!','.',',','s']
 global.sp = '⭔'
 global.mess = {
     nsfw: '*Fitur NSFW tidak diaktifkan, chat admin grup supaya diaktifkan*_',
