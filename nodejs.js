@@ -222,7 +222,7 @@ rm76.ev.on('group-participants.update', async (anu) => {
                 he = `Welcome To ${metadata.subject} @${num.split("@")[0]}\n\n${metadata.desc}`
                 let link = `https://wa.me/message/4DCK3UGKERTGC1`
 let buttonsh = [
-{buttonId: `HAI`, buttonText: {displayText: 'intro'}, type: 1}
+{buttonId: `HAI`, buttonText: {displayText: 'HAI'}, type: 1}
 ]
 let buttonMessage = {
 document: fs.readFileSync('./baseikal/lib/tes.xlsx'),
