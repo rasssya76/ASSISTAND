@@ -129,8 +129,9 @@ return list[Math.floor(list.length * Math.random())]}
 //dokumen random
 let doku = [f1,f2,f3,f4,f5,f6]
 let feler = pickRandom(doku)
-// yoi
+//
 //=================================================//
+/*
 rm76.ev.on('group-participants.update', async (anu) => {
 console.log(anu)
 try {
@@ -192,8 +193,98 @@ sourceUrl: link,
 mediaUrl: link,}}}
 rm76.sendMessage(anu.id, aalnu, {quoted:fgclink})}}
 } catch (err) {
-console.log(err)}})
+console.log(err)}})*/
+rm76.ev.on('group-participants.update', async (anu) => {
+        console.log(anu)
+        try {
+            let metadata = await rm76.groupMetadata(anu.id)
+            let participants = anu.participants
+            for (let num of participants) {
+                // Get Profile Picture User
+                try {
+                    ppuser = await rm76.profilePictureUrl(num, 'image')
+                } catch {
+                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
 
+                // Get Profile Picture Group
+                try {
+                    ppgroup = await rm76.profilePictureUrl(anu.id, 'image')
+                } catch {
+                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+                var fotogrup = await getBuffer(ppgroup)
+                memb = metadata.participants.length
+                let nama = await rm76.getName(num)                 
+                if (anu.action == 'add') {  
+                 const pushname = m.pushName || "No Name"                   
+                     var buffer = await getBuffer(ppuser)
+                let fgclink = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: buffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+                he = `Welcome To ${metadata.subject} @${num.split("@")[0]}\n\n${metadata.desc}`
+                let link = `https://wa.me/message/4DCK3UGKERTGC1`
+let buttonsh = [
+{buttonId: `HAI`, buttonText: {displayText: 'intro'}, type: 1}
+]
+let buttonMessage = {
+document: fs.readFileSync('./lib/tes.xlsx'),
+mimetype: 'application/pdf',
+jpegThumbnail:fotogrup,
+mentions: [num],
+fileName: `Welcome To ${metadata.subject}`,
+fileLength: 99999999999999,
+caption: he,
+footer: `GABUT-ASSISTAND`,
+buttons: buttonsh,
+headerType: 4,
+contextInfo:{externalAdReply:{
+title: ``,
+body: `Hai Welcome`,
+mediaType:2,
+thumbnail: buffer,
+sourceUrl: link,
+mediaUrl: link,
+}}
+}
+rm76.sendMessage(anu.id, buttonMessage, {quoted:fgclink})        
+
+     
+                } else if (anu.action == 'remove') {
+                    const pushname = m.pushName || "No Name"                   
+                     var buffer = await getBuffer(ppuser)
+var fotogrup = await getBuffer(ppgroup)            
+                let fgclink = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: buffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+                he = `Out in ${metadata.subject} @${num.split("@")[0]}\n\n`
+                let link = `https://wa.me/message/4DCK3UGKERTGC1`
+let buttons = [
+{buttonId: `DAGH`, buttonText: {displayText: 'BYEE'}, type: 1}
+]
+let buttonMessage = {
+document: fs.readFileSync('./lib/tes.xlsx'),
+mimetype: 'application/pdf',
+jpegThumbnail:fotogrup,
+mentions: [num],
+fileName: `Out In ${metadata.subject}`,
+fileLength: 99999999999999,
+caption: he,
+footer: `GABUT-ASSISTAND`,
+buttons: buttons,
+headerType: 4,
+contextInfo:{externalAdReply:{
+title: `GABUT-ASSISTAND`,
+body: `Good Bye :(`,
+mediaType:2,
+thumbnail: buffer,
+sourceUrl: link,
+mediaUrl: link,
+}}
+}
+rm76.sendMessage(anu.id, buttonMessage, {quoted:fgclink})          
+                }
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    })    
 //=================================================//
 // Setting
 rm76.decodeJid = (jid) => {
