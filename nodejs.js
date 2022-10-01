@@ -133,7 +133,6 @@ let feler = pickRandom(doku)
 //=================================================//
 rm76.ev.on('group-participants.update', async (anu) => {
 console.log(anu)
-if (!wlcm.includes(anu.id)) return
 try {
 let metadata = await rm76.groupMetadata(anu.id)
 let participants = anu.participants
