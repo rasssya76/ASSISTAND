@@ -226,7 +226,7 @@ let buttonsh = [
 {buttonId: `HAI`, buttonText: {displayText: 'intro'}, type: 1}
 ]
 let buttonMessage = {
-document: fs.readFileSync('./lib/tes.xlsx'),
+document: fs.readFileSync('./baseikal/lib/tes.xlsx'),
 mimetype: 'application/pdf',
 jpegThumbnail:fotogrup,
 mentions: [num],
@@ -259,7 +259,7 @@ let buttons = [
 {buttonId: `DAGH`, buttonText: {displayText: 'BYEE'}, type: 1}
 ]
 let buttonMessage = {
-document: fs.readFileSync('./lib/tes.xlsx'),
+document: fs.readFileSync('./baseikal/lib/tes.xlsx'),
 mimetype: 'application/pdf',
 jpegThumbnail:fotogrup,
 mentions: [num],
