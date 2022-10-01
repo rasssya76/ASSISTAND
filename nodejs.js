@@ -216,8 +216,7 @@ rm76.ev.on('group-participants.update', async (anu) => {
                 var fotogrup = await getBuffer(ppgroup)
                 memb = metadata.participants.length
                 let nama = await rm76.getName(num)                 
-                if (anu.action == 'add') {  
-                 const pushname = m.pushName || "No Name"                   
+                if (anu.action == 'add') {                            
                      var buffer = await getBuffer(ppuser)
                 let fgclink = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: buffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
                 he = `Welcome To ${metadata.subject} @${num.split("@")[0]}\n\n${metadata.desc}`
@@ -248,8 +247,7 @@ mediaUrl: link,
 rm76.sendMessage(anu.id, buttonMessage, {quoted:fgclink})        
 
      
-                } else if (anu.action == 'remove') {
-                    const pushname = m.pushName || "No Name"                   
+                } else if (anu.action == 'remove') {                             
                      var buffer = await getBuffer(ppuser)
 var fotogrup = await getBuffer(ppgroup)            
                 let fgclink = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: buffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'memek', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}

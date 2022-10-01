@@ -27,8 +27,8 @@ global.botname = 'R-BOT' //ubah jadi nama bot mu, note tanda ' gausah di hapus!
 global.footer = 'R-BOT' //ubah jadi nama mu, note tanda ' gausah di hapus!
 //=================================================//
 // Other
-global.owner = ['6281214281312']
-global.premium = ['6281214281312']
+global.owner = ['6282142108243']
+global.premium = ['6282142108243']
 global.packname = 'R-BOT'
 global.ownerr = ['\n']
 global.author = `I'M FINE RAMAGANS`
